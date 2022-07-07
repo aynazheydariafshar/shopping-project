@@ -5,10 +5,10 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
-import { CssBaseline, Drawer, Paper } from "@mui/material";
+import { CssBaseline, Drawer, List , ListItem , ListItemIcon , ListItemText} from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
-import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+// import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 
 //itemes on side menu
 const listItems = [

@@ -1,10 +1,10 @@
-import Header from 'layout/sructerLayout/Header';
+import Home from 'pages/Home';
 import 'styles/App.css';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+     <Home />
     </div>
   );
 }
