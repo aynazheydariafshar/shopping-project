@@ -13,7 +13,7 @@ const HomeBackGround = () => {
   const TextDiv = styled.div`
     position: absolute;
     color: white;
-    top: 30%;
+    top: 33%;
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
@@ -33,7 +33,7 @@ const HomeBackGround = () => {
           }}
         />
         <TextDiv>
-          <Typography fontWeight="bold" variant="h4" noWrap component="div">
+          <Typography variant="h4" component='div' fontWeight='bold'>
             Welcome to our shop
           </Typography>
           <TextP>
