@@ -1,10 +1,10 @@
-import Home from 'pages/Home';
+import RoutesPage from 'routes/RoutesPage';
 import 'styles/App.css';
 
 function App() {
   return <>
-     <Home />
-    </>
+    <RoutesPage />
+  </>
 }
 
 export default App;
