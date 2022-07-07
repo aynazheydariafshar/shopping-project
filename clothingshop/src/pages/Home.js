@@ -1,9 +1,11 @@
-import StructerPages from "layout/StructerPages"
+import HomeBackGround from "components/HomeBackGround"
+import Header from "layout/sructerLayout/Header"
 
 const Home = () => {
     return <>
-        <h1>ffjfj</h1>
+        <Header />
+        <HomeBackGround />
     </>
 }
 
-export default StructerPages(Home)
+export default Home
