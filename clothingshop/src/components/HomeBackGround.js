@@ -1,42 +1,53 @@
-import { Button } from "@mui/material";
-import background from "assets/images/banner.jpg";
+import React from "react";
+import imageHome from "assets/images/banner.jpg";
+import { Box, Typography, CardMedia, Button } from "@mui/material";
 import styled from "styled-components";
 
 const HomeBackGround = () => {
+  const TextP = styled.p`
+    width: 400px;
+    display: grid;
+    text-align: left;
+  `;
 
-    //add style for article
-    const ArticleImage = styled.article`
-        color : white;
-        background-repeat: no-repeat;
-        background-size: 100% 100vh;
-        place-items: center;
-        background-image:  linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${background});
-    `;
-
-    //add style for headertxt
-    const TextImage = styled.h1`
-        background-repeat: no-repeat;
-        background-position: center;
-        font-size : 40px;
-        place-items: center;
-    `;
-
-    //add style for paragraph
-    const TextP = styled.p`
-        width: 400px;
-        display: grid;
-    `;
+  const TextDiv = styled.div`
+    position: absolute;
+    color: white;
+    top: 30%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  `;
 
   return (
-        <ArticleImage>
-            <div style={{placeItems: 'center' , display : 'flex',height : '100vh' , justifyContent : 'center' , flexDirection : 'column' , alignItems : 'center'}}>
-                <TextImage>Welcome to our shop</TextImage>
-                <TextP>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas purus viverra accumsan in nisl nisi Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque
-                </TextP>
-                <Button sx={{padding : '10px 30px'}} variant="contained">SHOP NOW</Button>
-            </div>
-        </ArticleImage>
+    <Box sx={{ width: "100%", height: "100vh" }}>
+      <div style={{ position: "relative" }}>
+        <CardMedia
+          component="div"
+          sx={{
+            display: "flex",
+            height: "100vh",
+            objectFit: "cover",
+            alignItems: "left",
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${imageHome})`,
+          }}
+        />
+        <TextDiv>
+          <Typography fontWeight="bold" variant="h4" noWrap component="div">
+            Welcome to our shop
+          </Typography>
+          <TextP>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas
+            purus viverra accumsan in nisl nisi Arcu cursus vitae congue mauris
+            rhoncus aenean vel elit scelerisque
+          </TextP>
+          <Button sx={{ padding: "10px 30px" }} variant="contained">
+            SHOP NOW
+          </Button>
+        </TextDiv>
+      </div>
+    </Box>
   );
 };
 
