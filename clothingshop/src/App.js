@@ -3,6 +3,7 @@ import { DataContext } from "context/DataContext";
 import { useEffect, useState } from "react";
 import RoutesPage from "routes/RoutesPage";
 import "styles/App.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   //all of clothes
@@ -22,7 +23,20 @@ function App() {
 
   return (
     <DataContext.Provider value={{ data, getData }}>
-      <RoutesPage />
+      <div>
+        <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        <RoutesPage />
+      </div>
     </DataContext.Provider>
   );
 }

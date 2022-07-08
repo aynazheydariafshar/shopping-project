@@ -8,7 +8,7 @@ const RoutesPage = () => {
     return <Routes>
         <Route element={<Home />} path="/"/>
         <Route element={<Products />} path="/products"/>
-        <Route element={<SingleProduct />} path="/products:id"/>
+        <Route element={<SingleProduct />} path="/products/:id"/>
         <Route element={<NotFound />} path="*"/>
     </Routes>
 }

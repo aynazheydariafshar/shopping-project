@@ -37,15 +37,13 @@ export default function CardSingle({
           sx={{ objectFit: "contain", padding: "20px" }}
         />
         <CardContent>
-          <Box>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="div" padding='5px'>
               {title}
             </Typography>
-          </Box>
-          <Box height="20%">
             <Typography
               gutterBottom
               variant="body2"
+              padding='5px'
               component="div"
               color="text.secondary"
               sx={{
@@ -56,13 +54,11 @@ export default function CardSingle({
             >
               {description}
             </Typography>
-          </Box>
         </CardContent>
         <CardActions sx={{ flexDirection: "column", display: "flex" }}>
           <Box sx={{ marginRight: "200px" }}>
             <Typography
               variant="body2"
-              padding="10px"
               fontWeight="bold"
               sx={{ fontSize: "20px" }}
               color="#35796D"
