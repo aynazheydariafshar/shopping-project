@@ -31,9 +31,10 @@ export default function CardSingle({
         <CardMedia
           component="img"
           height="170"
+          className="image-hover"
           image={imgSrc}
           alt="imgProduct"
-          sx={{ objectFit: "contain", padding: "0px" }}
+          sx={{ objectFit: "contain", padding: "20px" }}
         />
         <CardContent>
           <Box>
