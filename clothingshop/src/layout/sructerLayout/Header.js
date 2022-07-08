@@ -8,17 +8,19 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { CssBaseline, Drawer, List , ListItem , ListItemIcon , ListItemText} from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
-// import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import {Link} from 'react-router-dom';
 
 //itemes on side menu
 const listItems = [
   {
     listIcon: <HomeRoundedIcon />,
     listText: "Home",
+    listpath : ' '
   },
   {
     listIcon: <ShoppingBagRoundedIcon />,
     listText: "Products",
+    listpath : 'products'
   },
 ];
 
@@ -35,10 +37,12 @@ export default function Header() {
       <Box sx={{padding : '20px 10px'}} component="div">
         <List>
           {listItems.map((listItem, index) => (
-            <ListItem button key={index}>
-              <ListItemIcon>{listItem.listIcon}</ListItemIcon>
-              <ListItemText primary={listItem.listText} />
-            </ListItem>
+            <Link className="link" to={`/${listItem.listpath}`}>
+              <ListItem button key={index}>
+                <ListItemIcon>{listItem.listIcon}</ListItemIcon>
+                <ListItemText primary={listItem.listText} />
+              </ListItem>
+            </Link>
           ))}
         </List>
       </Box>
@@ -60,27 +64,31 @@ export default function Header() {
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
               {renderMobileMenu()}
             </Drawer>
-            <Typography
-              fontWeight="bold"
-              variant="h6"
-              noWrap
-              marginRight="40px"
-              component="div"
-              sx={{ display: { xs: "none", sm: "none", md: "block" } }}
-              className="nav-hover"
-            >
-              Home
-            </Typography>
-            <Typography
-              fontWeight="bold"
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: "none", sm: "none", md: "block" } }}
-              className="nav-hover"
-            >
-              Products
-            </Typography>
+            <Link className="link" to="/">
+              <Typography
+                fontWeight="bold"
+                variant="h6"
+                noWrap
+                marginRight="40px"
+                component="div"
+                sx={{ display: { xs: "none", sm: "none", md: "block" } }}
+                className="nav-hover"
+              >
+                Home
+              </Typography>
+            </Link>
+            <Link className="link" to='/products'>
+              <Typography
+                fontWeight="bold"
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ display: { xs: "none", sm: "none", md: "block" } }}
+                className="nav-hover"
+              >
+                Products
+              </Typography>
+            </Link>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"

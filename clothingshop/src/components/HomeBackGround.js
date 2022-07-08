@@ -2,6 +2,7 @@ import React from "react";
 import imageHome from "assets/images/banner.jpg";
 import { Box, Typography, CardMedia, Button } from "@mui/material";
 import styled from "styled-components";
+import { useNavigate } from "react-router";
 
 const HomeBackGround = () => {
   const TextP = styled.p`
@@ -18,6 +19,9 @@ const HomeBackGround = () => {
     left: 50%;
     transform: translateX(-50%);
   `;
+
+  //navigate
+  const navigate = useNavigate();
 
   return (
     <Box sx={{ width: "100%", height: "100vh" }}>
@@ -42,7 +46,7 @@ const HomeBackGround = () => {
             purus viverra accumsan in nisl nisi Arcu cursus vitae congue mauris
             rhoncus aenean vel elit scelerisque
           </TextP>
-          <Button sx={{ padding: "10px 30px" }} variant="contained">
+          <Button onClick={() => navigate('/products')} sx={{ padding: "10px 30px" }} variant="contained">
             SHOP NOW
           </Button>
         </TextDiv>
