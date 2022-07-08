@@ -1,6 +1,6 @@
 import { Box, Card } from "@mui/material";
 import Spinner from "components/Spinner";
-import CardSingle from "context/CardSingle";
+import CardSingle from "components/CardSingle";
 import { DataContext } from "context/DataContext";
 import StructerPages from "layout/StructerPages";
 import { useContext } from "react";
@@ -12,37 +12,38 @@ const Products = () => {
 
   return (
     <>
-    {dataContext.loading ? <Spinner /> : 
-    <Card>
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: { md: "row", sm: "column" },
-        justifyContent: "space-around",
-        alignItems: "center",
-        flexWrap: "wrap",
-        py: "20px",
-      }}
-    >
-      {dataContext.data?.map((item) => {
-        return (
-          <Link className="link" to={`/products/${item.id}`}>
-            <CardSingle
-              imgSrc={item.image}
-              title={item.title}
-              price={item.price}
-              description={item.description}
-              rate={item.rating.rate}
-              count={item.rating.count}
-            />
-          </Link>
-        );
-      })}
-    </Box>
-  </Card>
-    }
+      {dataContext.loading ? (
+        <Spinner />
+      ) : (
+        <Card>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { md: "row", sm: "row", xs: "column" },
+              justifyContent: "space-around",
+              alignItems: "center",
+              flexWrap: "wrap",
+              py: "20px",
+            }}
+          >
+            {dataContext.data?.map((item) => {
+              return (
+                <Link className="link" to={`/products/${item.id}`}>
+                  <CardSingle
+                    imgSrc={item.image}
+                    title={item.title}
+                    price={item.price}
+                    description={item.description}
+                    rate={item.rating.rate}
+                    count={item.rating.count}
+                  />
+                </Link>
+              );
+            })}
+          </Box>
+        </Card>
+      )}
     </>
-    
   );
 };
 

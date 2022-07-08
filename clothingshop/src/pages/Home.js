@@ -1,11 +1,13 @@
-import HomeBackGround from "components/HomeBackGround"
-import Header from "layout/sructerLayout/Header"
+import HomeBackGround from "components/HomeBackGround";
+import Header from "layout/sructerLayout/Header";
 
 const Home = () => {
-    return <>
-        <Header />
-        <HomeBackGround />
+  return (
+    <>
+      <Header />
+      <HomeBackGround />
     </>
-}
+  );
+};
 
-export default Home
+export default Home;

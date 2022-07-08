@@ -25,19 +25,19 @@ function App() {
   }, []);
 
   return (
-    <DataContext.Provider value={{ data , loading}}>
+    <DataContext.Provider value={{ data, loading }}>
       <div>
         <ToastContainer
-            position="bottom-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <RoutesPage />
       </div>
     </DataContext.Provider>

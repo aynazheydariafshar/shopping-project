@@ -37,7 +37,7 @@ const HomeBackGround = () => {
           }}
         />
         <TextDiv>
-          <Typography variant="h4" component='div' fontWeight='bold'>
+          <Typography variant="h4" component="div" fontWeight="bold">
             Welcome to our shop
           </Typography>
           <TextP>
@@ -46,7 +46,11 @@ const HomeBackGround = () => {
             purus viverra accumsan in nisl nisi Arcu cursus vitae congue mauris
             rhoncus aenean vel elit scelerisque
           </TextP>
-          <Button onClick={() => navigate('/products')} sx={{ padding: "10px 30px" }} variant="contained">
+          <Button
+            onClick={() => navigate("/products")}
+            sx={{ padding: "10px 30px" }}
+            variant="contained"
+          >
             SHOP NOW
           </Button>
         </TextDiv>

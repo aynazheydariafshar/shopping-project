@@ -5,22 +5,29 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
-import { CssBaseline, Drawer, List , ListItem , ListItemIcon , ListItemText} from "@mui/material";
+import {
+  CssBaseline,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 //itemes on side menu
 const listItems = [
   {
     listIcon: <HomeRoundedIcon />,
     listText: "Home",
-    listpath : ' '
+    listpath: " ",
   },
   {
     listIcon: <ShoppingBagRoundedIcon />,
     listText: "Products",
-    listpath : 'products'
+    listpath: "products",
   },
 ];
 
@@ -34,7 +41,7 @@ export default function Header() {
 
   const renderMobileMenu = () => {
     return (
-      <Box sx={{padding : '20px 10px'}} component="div">
+      <Box sx={{ padding: "20px 10px" }} component="div">
         <List>
           {listItems.map((listItem, index) => (
             <Link className="link" to={`/${listItem.listpath}`}>
@@ -77,7 +84,7 @@ export default function Header() {
                 Home
               </Typography>
             </Link>
-            <Link className="link" to='/products'>
+            <Link className="link" to="/products">
               <Typography
                 fontWeight="bold"
                 variant="h6"
