@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartShop from "./cartShop";
 
+//clothes on localstorage to parse
 const loadState = () => {
     try {
       const serializedState = localStorage.getItem("state");
@@ -13,6 +14,7 @@ const loadState = () => {
     }
   };
   
+//add clothes on localstorage
 const setcartItems = (state) => {
     try {
       const serializedState = JSON.stringify(state);
