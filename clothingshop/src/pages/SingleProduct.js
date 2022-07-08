@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IoMdAdd } from "react-icons/io";
 import { BiMinus , BiArrowBack } from "react-icons/bi";
 import { addToCart, decreaseCount , getTotalOfPrice} from "redux/cartShop";
+import Spinner from "components/Spinner";
 
 const SingleProduct = () => {
 
@@ -60,101 +61,105 @@ const SingleProduct = () => {
     }, [dataParams])
 
     return <>
-    {product?.map(item => {
-        return <Box sx={{display : 'flex',marginTop : '20px' , flexDirection : {md:'row' , sm : 'column', xs : 'column'} , alignItems : 'center' , justifyContent : 'space-between'}}>
-            <Box sx={{border : '1px solid black', margin : '30px 40px' , padding : '12%'}}>
-                <img src={item.image} alt='product' width='250px' height='250px'/>
-            </Box>
-            <Box>
-                <Button onClick={() => navigate(-1)} sx={{color : 'gray'}}>
-                    <BiArrowBack fontSize='30px'/>
-                </Button>
-                <Typography gutterBottom fontWeight='bold' variant="h4" component="div" padding='20px'>
-                {item.title}
-                </Typography>
-                <Typography gutterBottom fontWeight='bold' variant="h6" component="div" paddingX='20px'>
-                description
-                </Typography>
-                <Box width='95%' marginLeft='20px'>
-                    <Divider color='gray'/>
-                    <Typography paddingY='30px' gutterBottom variant="h6" component="div">
-                        {item.description}
-                    </Typography>
-                    <Divider color='gray'/>
-                </Box>    
-                <Box
-                    sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent : {md : 'flex-start' ,sm : 'center' , xs:'center'},
-                    marginLeft : '20px',
-                    marginTop : '20px'
-                    }}
-                >
-                    <AiTwotoneStar />
-                    <Typography variant="h6" paddingX='10px'>
-                    {item.rating.rate}
-                    </Typography>
-                </Box>
-                <Box
-                    sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent : {md : 'flex-start', sm : 'center' , xs:'center'},
-                    marginLeft : '20px'
-                    }}
-                >
-                    <MdInsertComment />
-                    <Typography variant="h6" paddingX='10px'>
-                    {item.rating.count}
-                    </Typography>
+    {dataContext.loading ? <Spinner /> :
+    <>
+        {product?.map(item => {
+            return <Box sx={{display : 'flex',marginTop : '20px' , flexDirection : {md:'row' , sm : 'column', xs : 'column'} , alignItems : 'center' , justifyContent : 'space-between'}}>
+                <Box sx={{border : '1px solid black', margin : '30px 40px' , padding : '12%'}}>
+                    <img src={item.image} alt='product' width='250px' height='250px'/>
                 </Box>
                 <Box>
-                    <Typography
-                    sx={{
-                        display: "flex",
-                        justifyContent : {md : 'flex-start' , sm : 'center' , xs:'center'},
-                    }}
-                    padding="5px"
-                    variant="h6"
-                    fontWeight="bold"
-                    marginY = '20px'
-                    >
-                    <Button
-                        sx={{ marginLeft: "10px"}}
-                        onClick={() => handlelowerCounter(item)}
-                        variant='outlined'
-                        padding='5px 20px'
-                    >
-                        <BiMinus fontSize='30px'/>
+                    <Button onClick={() => navigate(-1)} sx={{color : 'gray'}}>
+                        <BiArrowBack fontSize='30px'/>
                     </Button>
-                    <span style={{fontSize : '20px' , padding : '0 20px'}}>
-                        {cart.cartItems[findproduct(item)]?.cartQuantity ? cart.cartItems[findproduct(item)].cartQuantity : 1}
-                    </span>
-                    <Button
-                        sx={{ marginLeft: "10px"}}
-                        onClick={() => handleaddCounter(item)}
-                        variant='outlined'
-                        padding='5px 20px'
-                        
-                    >
-                        <IoMdAdd fontSize='30px'/>
-                    </Button>
+                    <Typography gutterBottom fontWeight='bold' variant="h4" component="div" padding='20px'>
+                    {item.title}
                     </Typography>
-                </Box>
-                <Box
-                    sx={{
-                    display: "flex",
-                    justifyContent : {md : 'flex-start', sm : 'center' , xs:'center'},
-                    }}
-                >
-                    <Button onClick={() => alert(`${getPrice(item)}$`)} padding='0 20px' sx={{ marginLeft : '15px',marginBottom :'30px', fontSize : '15px' }} variant="contained">
-                        {getPrice(item)} $ 
-                    </Button>
+                    <Typography gutterBottom fontWeight='bold' variant="h6" component="div" paddingX='20px'>
+                    description
+                    </Typography>
+                    <Box width='95%' marginLeft='20px'>
+                        <Divider color='gray'/>
+                        <Typography paddingY='30px' gutterBottom variant="h6" component="div">
+                            {item.description}
+                        </Typography>
+                        <Divider color='gray'/>
+                    </Box>    
+                    <Box
+                        sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent : {md : 'flex-start' ,sm : 'center' , xs:'center'},
+                        marginLeft : '20px',
+                        marginTop : '20px'
+                        }}
+                    >
+                        <AiTwotoneStar />
+                        <Typography variant="h6" paddingX='10px'>
+                        {item.rating.rate}
+                        </Typography>
+                    </Box>
+                    <Box
+                        sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent : {md : 'flex-start', sm : 'center' , xs:'center'},
+                        marginLeft : '20px'
+                        }}
+                    >
+                        <MdInsertComment />
+                        <Typography variant="h6" paddingX='10px'>
+                        {item.rating.count}
+                        </Typography>
+                    </Box>
+                    <Box>
+                        <Typography
+                        sx={{
+                            display: "flex",
+                            justifyContent : {md : 'flex-start' , sm : 'center' , xs:'center'},
+                        }}
+                        padding="5px"
+                        variant="h6"
+                        fontWeight="bold"
+                        marginY = '20px'
+                        >
+                        <Button
+                            sx={{ marginLeft: "10px"}}
+                            onClick={() => handlelowerCounter(item)}
+                            variant='outlined'
+                            padding='5px 20px'
+                        >
+                            <BiMinus fontSize='30px'/>
+                        </Button>
+                        <span style={{fontSize : '20px' , padding : '0 20px'}}>
+                            {cart.cartItems[findproduct(item)]?.cartQuantity ? cart.cartItems[findproduct(item)].cartQuantity : 1}
+                        </span>
+                        <Button
+                            sx={{ marginLeft: "10px"}}
+                            onClick={() => handleaddCounter(item)}
+                            variant='outlined'
+                            padding='5px 20px'
+                            
+                        >
+                            <IoMdAdd fontSize='30px'/>
+                        </Button>
+                        </Typography>
+                    </Box>
+                    <Box
+                        sx={{
+                        display: "flex",
+                        justifyContent : {md : 'flex-start', sm : 'center' , xs:'center'},
+                        }}
+                    >
+                        <Button onClick={() => alert(`${getPrice(item)}$`)} padding='0 20px' sx={{ marginLeft : '15px',marginBottom :'30px', fontSize : '15px' }} variant="contained">
+                            {getPrice(item)} $ 
+                        </Button>
+                    </Box>
                 </Box>
             </Box>
-        </Box>
-    })}
+        })}
+    </> 
+    }
     </>
 }
 

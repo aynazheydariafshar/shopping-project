@@ -8,13 +8,16 @@ import { ToastContainer } from "react-toastify";
 function App() {
   //all of clothes
   const [data, setData] = useState();
+  const [loading, setLoading] = useState(true);
 
   //get data from link
   const getData = () => {
+    setLoading(true);
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => setData(res.data))
-      .catch((err) => alert(err));
+      .catch((err) => alert(err))
+      .finally((res) => setLoading(false));
   };
 
   useEffect(() => {
@@ -22,7 +25,7 @@ function App() {
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, getData }}>
+    <DataContext.Provider value={{ data , loading}}>
       <div>
         <ToastContainer
             position="bottom-right"
